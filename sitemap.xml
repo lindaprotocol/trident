@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://tronprotocol.github.io/trident/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/index.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
     <url>
-         <loc>https://tronprotocol.github.io/trident/guides/keypair/key-management/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/guides/keypair/key-management.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
     <url>
-         <loc>https://tronprotocol.github.io/trident/guides/smart-contracts/abi/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/guides/smart-contracts/abi.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
     <url>
-         <loc>https://tronprotocol.github.io/trident/guides/smart-contracts/deployment/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/guides/smart-contracts/deployment.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
     <url>
-         <loc>https://tronprotocol.github.io/trident/guides/smart-contracts/interaction/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/guides/smart-contracts/interaction.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
     <url>
-         <loc>https://tronprotocol.github.io/trident/guides/smart-contracts/overview/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/guides/smart-contracts/overview.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
     <url>
-         <loc>https://tronprotocol.github.io/trident/guides/transactions/signing/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/guides/transactions/signing.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
     <url>
-         <loc>https://tronprotocol.github.io/trident/guides/transactions/transaction-guide/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/guides/transactions/transaction-guide.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
     <url>
-         <loc>https://tronprotocol.github.io/trident/quickstart/getting-started/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/quickstart/getting-started.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
     <url>
-         <loc>https://tronprotocol.github.io/trident/security/gpg-verification/</loc>
-         <lastmod>2025-03-07</lastmod>
+         <loc>https://tronprotocol.github.io/trident/security/gpg-verification.html</loc>
+         <lastmod>2025-05-27</lastmod>
     </url>
 </urlset>
