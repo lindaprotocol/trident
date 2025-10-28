@@ -41,6 +41,7 @@ import org.tron.trident.api.GrpcAPI.PaginatedMessage;
 import org.tron.trident.api.GrpcAPI.TransactionIdList;
 import org.tron.trident.api.WalletGrpc;
 import org.tron.trident.api.WalletSolidityGrpc;
+import org.tron.trident.core.account.AccountPermissions;
 import org.tron.trident.core.contract.Contract;
 import org.tron.trident.core.contract.ContractFunction;
 import org.tron.trident.core.exceptions.IllegalException;
@@ -55,6 +56,7 @@ import org.tron.trident.core.utils.Utils;
 import org.tron.trident.proto.Chain.Block;
 import org.tron.trident.proto.Chain.Transaction;
 import org.tron.trident.proto.Chain.Transaction.Contract.ContractType;
+import org.tron.trident.proto.Common.Permission;
 import org.tron.trident.proto.Common.SmartContract;
 import org.tron.trident.proto.Contract.AccountCreateContract;
 import org.tron.trident.proto.Contract.AccountPermissionUpdateContract;
@@ -2009,20 +2011,70 @@ public class ApiWrapper implements Api {
   }
 
   /**
-   * Unfreeze a token that has passed the minimum freeze duration
+   * Update account permissions for multiSign
    *
    * @param accountPermissionUpdateContract AccountPermissionUpdateContract
    * @return TransactionExtention
    * @throws IllegalException if fail to update account permission
    */
   @Override
-  public TransactionExtention accountPermissionUpdate(AccountPermissionUpdateContract
-      accountPermissionUpdateContract)
-      throws IllegalException {
+  public TransactionExtention accountPermissionUpdate(
+      AccountPermissionUpdateContract accountPermissionUpdateContract
+  ) throws IllegalException {
 
     return createTransactionExtention(accountPermissionUpdateContract,
         Transaction.Contract.ContractType.AccountPermissionUpdateContract);
   }
+
+  /**
+   * update account permissions with new owner/witness/active permissions
+   *
+   * @param ownerAddress Owner address
+   * @param accountPermissions New AccountPermission (containing owner/witness/active permissions)
+   * @return TransactionExtention
+   * @throws IllegalException if newOwnerPermission or newActivePermissions is null
+   */
+  @Override
+  public TransactionExtention accountPermissionUpdate(
+      String ownerAddress, AccountPermissions accountPermissions
+  ) throws IllegalException {
+    if (accountPermissions == null
+        || accountPermissions.getOwnerPermission() == null
+        || accountPermissions.getActivePermissions().isEmpty()) {
+      throw new IllegalException("newOwnerPermission and newActivePermissions must not be null");
+    }
+
+    // Set owner permission
+    AccountPermissionUpdateContract.Builder builder = AccountPermissionUpdateContract.newBuilder()
+        .setOwnerAddress(parseAddress(ownerAddress))
+        .setOwner(accountPermissions.getOwnerPermission());
+
+    // Set witness permission
+    if (accountPermissions.getWitnessPermission() != null) {
+      builder.setWitness(accountPermissions.getWitnessPermission());
+    }
+
+    // Set active permissions
+    for (Permission permission : accountPermissions.getActivePermissions()) {
+      builder.addActives(permission);
+    }
+
+    return accountPermissionUpdate(builder.build());
+  }
+
+  public AccountPermissions getAccountPermissions(String address, NodeType... nodeType) {
+    ByteString bsAddress = parseAddress(address);
+    AccountAddressMessage accountAddressMessage = AccountAddressMessage.newBuilder()
+        .setAddress(bsAddress)
+        .build();
+
+    Account account =  useSolidityNode(nodeType)
+        ? blockingStubSolidity.getAccount(accountAddressMessage)
+        : blockingStub.getAccount(accountAddressMessage);
+
+    return new AccountPermissions(account);
+  }
+
   //All other solidified APIs end
 
   /**
@@ -2458,7 +2510,6 @@ public class ApiWrapper implements Api {
         Transaction.Contract.ContractType.WitnessCreateContract);
   }
 
-
   /**
    * UpdateWitness
    * Edit the URL of the witness's official website.
@@ -2502,7 +2553,6 @@ public class ApiWrapper implements Api {
         Transaction.Contract.ContractType.WithdrawBalanceContract);
   }
 
-
   /**
    * GetNextMaintenanceTime
    * Returns the timestamp of the next voting time in milliseconds.
@@ -2515,7 +2565,6 @@ public class ApiWrapper implements Api {
         EmptyMessage.getDefaultInstance());
     return numberMessage.getNum();
   }
-
 
   /**
    * ProposalCreate
@@ -2610,7 +2659,6 @@ public class ApiWrapper implements Api {
     return pendingSize.getNum();
   }
 
-
   /**
    * GetTransactionFromPending
    * Get transaction details from the pending pool
@@ -2629,7 +2677,6 @@ public class ApiWrapper implements Api {
     return blockingStub.getTransactionFromPending(request);
   }
 
-
   /**
    * GetBlockById
    * Query block by ID(block hash).
@@ -2645,7 +2692,6 @@ public class ApiWrapper implements Api {
         .build();
     return blockingStub.getBlockById(request);
   }
-
 
   /**
    * Estimate the energy required for the successful execution of smart contract transactions
@@ -2716,6 +2762,7 @@ public class ApiWrapper implements Api {
    * @deprecated Since 0.9.2, scheduled for removal in future versions.
    * Use {@link #estimateEnergy(String, String, String, long, long, String, NodeType...)} instead.
    */
+  @Deprecated
   @Override
   public Response.EstimateEnergyMessage estimateEnergyV2(String ownerAddress,
       String contractAddress, String callData) {
@@ -2765,7 +2812,6 @@ public class ApiWrapper implements Api {
         : blockingStub.getBandwidthPrices(emptyMessage);
   }
 
-
   /**
    * GetEnergyPrices
    * Query historical energy unit price.
@@ -2786,7 +2832,6 @@ public class ApiWrapper implements Api {
         : blockingStub.getEnergyPrices(emptyMessage);
   }
 
-
   /**
    * GetMemoFee
    * Query historical memo fee.
@@ -2800,7 +2845,6 @@ public class ApiWrapper implements Api {
   public PricesResponseMessage getMemoFee() {
     return blockingStub.getMemoFee(EmptyMessage.getDefaultInstance());
   }
-
 
   /**
    * GetBandwidthPricesOnSolidity
@@ -2818,7 +2862,6 @@ public class ApiWrapper implements Api {
   public PricesResponseMessage getBandwidthPricesOnSolidity() {
     return blockingStubSolidity.getBandwidthPrices(EmptyMessage.getDefaultInstance());
   }
-
 
   /**
    * GetEnergyPricesOnSolidity
