@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.crypto;
+package org.linda.trident.crypto;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -22,7 +22,7 @@ import org.bouncycastle.crypto.macs.HMac;
 import org.bouncycastle.crypto.params.KeyParameter;
 import org.bouncycastle.jcajce.provider.digest.Blake2b;
 import org.bouncycastle.jcajce.provider.digest.Keccak;
-import org.tron.trident.utils.Numeric;
+import org.linda.trident.utils.Numeric;
 
 /**
  * Cryptographic hash functions.

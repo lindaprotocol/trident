@@ -1,4 +1,4 @@
-package org.tron.trident.core;
+package org.linda.trident.core;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -11,36 +11,36 @@ import java.util.Collections;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.tron.trident.abi.FunctionEncoder;
-import org.tron.trident.abi.TypeReference;
-import org.tron.trident.abi.datatypes.Address;
-import org.tron.trident.abi.datatypes.Bool;
-import org.tron.trident.abi.datatypes.Function;
-import org.tron.trident.abi.datatypes.generated.Uint256;
-import org.tron.trident.api.GrpcAPI.NumberMessage;
-import org.tron.trident.core.exceptions.IllegalException;
-import org.tron.trident.core.utils.ByteArray;
-import org.tron.trident.proto.Chain.Block;
-import org.tron.trident.proto.Chain.Transaction;
-import org.tron.trident.proto.Contract.AssetIssueContract;
-import org.tron.trident.proto.Response.Account;
-import org.tron.trident.proto.Response.AssetIssueList;
-import org.tron.trident.proto.Response.BlockExtention;
-import org.tron.trident.proto.Response.DelegatedResourceAccountIndex;
-import org.tron.trident.proto.Response.DelegatedResourceList;
-import org.tron.trident.proto.Response.Exchange;
-import org.tron.trident.proto.Response.ExchangeList;
-import org.tron.trident.proto.Response.MarketOrder;
-import org.tron.trident.proto.Response.MarketOrderList;
-import org.tron.trident.proto.Response.MarketOrderPairList;
-import org.tron.trident.proto.Response.MarketPriceList;
-import org.tron.trident.proto.Response.PricesResponseMessage;
-import org.tron.trident.proto.Response.TransactionExtention;
-import org.tron.trident.proto.Response.TransactionInfo;
-import org.tron.trident.proto.Response.TransactionInfoList;
-import org.tron.trident.proto.Response.Witness;
-import org.tron.trident.proto.Response.WitnessList;
-import org.tron.trident.utils.Base58Check;
+import org.linda.trident.abi.FunctionEncoder;
+import org.linda.trident.abi.TypeReference;
+import org.linda.trident.abi.datatypes.Address;
+import org.linda.trident.abi.datatypes.Bool;
+import org.linda.trident.abi.datatypes.Function;
+import org.linda.trident.abi.datatypes.generated.Uint256;
+import org.linda.trident.api.GrpcAPI.NumberMessage;
+import org.linda.trident.core.exceptions.IllegalException;
+import org.linda.trident.core.utils.ByteArray;
+import org.linda.trident.proto.Chain.Block;
+import org.linda.trident.proto.Chain.Transaction;
+import org.linda.trident.proto.Contract.AssetIssueContract;
+import org.linda.trident.proto.Response.Account;
+import org.linda.trident.proto.Response.AssetIssueList;
+import org.linda.trident.proto.Response.BlockExtention;
+import org.linda.trident.proto.Response.DelegatedResourceAccountIndex;
+import org.linda.trident.proto.Response.DelegatedResourceList;
+import org.linda.trident.proto.Response.Exchange;
+import org.linda.trident.proto.Response.ExchangeList;
+import org.linda.trident.proto.Response.MarketOrder;
+import org.linda.trident.proto.Response.MarketOrderList;
+import org.linda.trident.proto.Response.MarketOrderPairList;
+import org.linda.trident.proto.Response.MarketPriceList;
+import org.linda.trident.proto.Response.PricesResponseMessage;
+import org.linda.trident.proto.Response.TransactionExtention;
+import org.linda.trident.proto.Response.TransactionInfo;
+import org.linda.trident.proto.Response.TransactionInfoList;
+import org.linda.trident.proto.Response.Witness;
+import org.linda.trident.proto.Response.WitnessList;
+import org.linda.trident.utils.Base58Check;
 
 class QueryBySolidityNodeTest {
   private static ApiWrapper client;
@@ -226,8 +226,8 @@ class QueryBySolidityNodeTest {
   }
 
   @Test
-  void testGetBurnTRX() {
-    long num = client.getBurnTRX(NodeType.SOLIDITY_NODE);
+  void testGetBurnLIND() {
+    long num = client.getBurnLIND(NodeType.SOLIDITY_NODE);
     assertTrue(num > 0);
   }
 

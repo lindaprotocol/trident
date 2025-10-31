@@ -11,13 +11,13 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.crypto;
+package org.linda.trident.crypto;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.tron.trident.utils.Numeric.asByte;
+import static org.linda.trident.utils.Numeric.asByte;
 
 public class HashTest {
 

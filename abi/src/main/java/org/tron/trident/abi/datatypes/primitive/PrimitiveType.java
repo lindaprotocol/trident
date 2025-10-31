@@ -11,11 +11,11 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi.datatypes.primitive;
+package org.linda.trident.abi.datatypes.primitive;
 
 import java.io.Serializable;
 import java.util.Objects;
-import org.tron.trident.abi.datatypes.Type;
+import org.linda.trident.abi.datatypes.Type;
 
 public abstract class PrimitiveType<T extends Serializable & Comparable<T>> implements Type<T> {
 

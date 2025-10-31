@@ -11,9 +11,9 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi.datatypes.primitive;
+package org.linda.trident.abi.datatypes.primitive;
 
-import org.tron.trident.abi.datatypes.NumericType;
+import org.linda.trident.abi.datatypes.NumericType;
 
 public class Float extends Number<java.lang.Float> {
 

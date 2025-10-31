@@ -11,12 +11,12 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi.datatypes;
+package org.linda.trident.abi.datatypes;
 
 import java.math.BigInteger;
 import java.util.Arrays;
-import org.tron.trident.utils.Base58Check;
-import org.tron.trident.utils.Numeric;
+import org.linda.trident.utils.Base58Check;
+import org.linda.trident.utils.Numeric;
 
 /**
  * Address type, which by default is equivalent to uint160 which follows the Ethereum specification.

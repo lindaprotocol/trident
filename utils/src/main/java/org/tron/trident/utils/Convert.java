@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.utils;
+package org.linda.trident.utils;
 
 import java.math.BigDecimal;
 
@@ -41,7 +41,7 @@ public final class Convert {
 
   public enum Unit {
     SUN("sun", 0),
-    TRX("trx", 6);
+    LIND("lind", 6);
 
     private String name;
     private BigDecimal sunFactor;

@@ -11,10 +11,10 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi.datatypes.primitive;
+package org.linda.trident.abi.datatypes.primitive;
 
-import org.tron.trident.abi.datatypes.Type;
-import org.tron.trident.abi.datatypes.generated.Bytes1;
+import org.linda.trident.abi.datatypes.Type;
+import org.linda.trident.abi.datatypes.generated.Bytes1;
 
 public final class Byte extends PrimitiveType<java.lang.Byte> {
 

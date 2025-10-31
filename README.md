@@ -1,12 +1,12 @@
-# Trident - TRON Java SDK
+# Trident - LINDA Java SDK
 
 ## Overview
 
-Trident is a lightweight Java SDK for interacting with the TRON blockchain. It provides a simple and efficient way to integrate TRON functionality into your Java applications.
+Trident is a lightweight Java SDK for interacting with the LINDA blockchain. It provides a simple and efficient way to integrate LINDA functionality into your Java applications.
 
 ## Features
 
-- Complete implementation of TRON's gRPC interfaces
+- Complete implementation of LINDA's gRPC interfaces
 - Smart contract deployment and interaction
 - Wallet key management and address utilities
 - Transaction building and signing
@@ -64,8 +64,8 @@ dependencies {
 
 **Initialize client**
 ```java
-// Initialize with TronGrid mainnet 
-ApiWrapper client = ApiWrapper.ofMainnet("private_key", "api_key"); //api_key from TronGrid
+// Initialize with LindaGrid mainnet 
+ApiWrapper client = ApiWrapper.ofMainnet("private_key", "api_key"); //api_key from LindaGrid
 
 //Or Shasta test net 
 ApiWrapper client = ApiWrapper.ofShasta("private key");
@@ -76,8 +76,8 @@ ApiWrapper client = ApiWrapper.ofNile("private_key");
 //Initialize with special grpc endpoint
 ApiWrapper client = new ApiWrapper("grpc endpoint", "solidity grpc endpoint", "private_key");
 
-// Send TRX
-TransactionExtention transactionExtention = client.transfer("fromAddress", "toAddress", 100_000_000L); //100TRX
+// Send LIND
+TransactionExtention transactionExtention = client.transfer("fromAddress", "toAddress", 100_000_000L); //100LIND
 // Sign
 Transaction signedTxn = client.signTransaction(transactionExtention);
 // Broadcast
@@ -87,7 +87,7 @@ System.out.println("txId is " + txId);
 
 ## Documentation
 
-- [Official Documentation](https://tronprotocol.github.io/trident/)
+- [Official Documentation](https://Lindaprotocol.github.io/trident/)
 
 
 ## Build instructions
@@ -97,15 +97,15 @@ Trident includes integration tests for running on the Nile testnet. If you want 
 ```
    //@Disabled("add private key to enable this case")
 ```
-2. Set the tron.private-key and tron.tokenId in the test configuration file in the core directory [here](core/src/test/resources/application-test.properties).
+2. Set the linda.private-key and linda.tokenId in the test configuration file in the core directory [here](core/src/test/resources/application-test.properties).
 
 
 ``` 
-tron.private-key=xxx
-tron.tokenId=1000587
+linda.private-key=xxx
+linda.tokenId=1000587
 ```
 
-**Note:** The account should have at least 1000 TRX, 100 USDT, and 1000 TRC10 token on the Nile testnet. you can get testCoin from [nileex.io](https://nileex.io/join/getJoinPage).
+**Note:** The account should have at least 1000 LIND, 100 USDT, and 1000 TRC10 token on the Nile testnet. you can get testCoin from [nileex.io](https://nileex.io/join/getJoinPage).
 
 ## Contribution
 

@@ -11,14 +11,14 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi;
+package org.linda.trident.abi;
 
 import java.math.BigInteger;
 import java.util.List;
-import org.tron.trident.abi.datatypes.Function;
-import org.tron.trident.abi.datatypes.StaticArray;
-import org.tron.trident.abi.datatypes.Type;
-import org.tron.trident.abi.datatypes.Uint;
+import org.linda.trident.abi.datatypes.Function;
+import org.linda.trident.abi.datatypes.StaticArray;
+import org.linda.trident.abi.datatypes.Type;
+import org.linda.trident.abi.datatypes.Uint;
 
 public class DefaultFunctionEncoder extends FunctionEncoder {
 

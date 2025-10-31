@@ -11,14 +11,14 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi;
+package org.linda.trident.abi;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import org.tron.trident.abi.datatypes.Event;
-import org.tron.trident.abi.datatypes.Type;
-import org.tron.trident.crypto.Hash;
-import org.tron.trident.utils.Numeric;
+import org.linda.trident.abi.datatypes.Event;
+import org.linda.trident.abi.datatypes.Type;
+import org.linda.trident.crypto.Hash;
+import org.linda.trident.utils.Numeric;
 
 /**
  * Ethereum filter encoding. Further limited details are available <a

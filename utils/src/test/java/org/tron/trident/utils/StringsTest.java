@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.utils;
+package org.linda.trident.utils;
 
 import java.util.Arrays;
 import java.util.Collections;

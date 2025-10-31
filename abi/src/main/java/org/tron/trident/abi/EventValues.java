@@ -11,10 +11,10 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi;
+package org.linda.trident.abi;
 
 import java.util.List;
-import org.tron.trident.abi.datatypes.Type;
+import org.linda.trident.abi.datatypes.Type;
 
 /**
  * Persisted solidity event parameters.

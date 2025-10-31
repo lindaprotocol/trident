@@ -21,10 +21,10 @@ This branch is the main development branch. It contains the complete code that i
 
 If you'd like to contribute to trident, you should follow the steps below:
 
-- **Fork** a repository from **tronprotocol/trident** allows you to freely experiment with changes without affecting the original project
+- **Fork** a repository from **lindaprotocol/trident** allows you to freely experiment with changes without affecting the original project
 - **Fix** some code and **Commit** your modified code.
 - **Send** a Pull Request（PR）for the maintainers to review and merge into the main codebase.
-  *notice*：When you create a new PR，please choose the **tronprotocol/trident** as the base repository and choose **your fork/trident** as the head repository.
+  *notice*：When you create a new PR，please choose the **lindaprotocol/trident** as the base repository and choose **your fork/trident** as the head repository.
   And you must choose **develop** as the base repository branch, which means we will merge the PR into our **develop** branch when reviewed and approved.
   Additionally, if you are writing a new feature, please ensure you add appropriate test cases under ``/src/test``.
 
@@ -51,7 +51,7 @@ must be limited to 50 words.
 ### Create issues
 
 Any significant improvement should be documented as [a GitHub
-issue](https://github.com/tronprotocol/trident/issues) before anyone
+issue](https://github.com/lindaprotocol/trident/issues) before anyone
 starts working on it.
 
 When filing an issue, make sure to answer these three questions:

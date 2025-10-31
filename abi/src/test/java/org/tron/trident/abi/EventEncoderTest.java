@@ -11,15 +11,15 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi;
+package org.linda.trident.abi;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import org.tron.trident.abi.datatypes.Event;
-import org.tron.trident.abi.datatypes.generated.Uint256;
+import org.linda.trident.abi.datatypes.Event;
+import org.linda.trident.abi.datatypes.generated.Uint256;
 
 public class EventEncoderTest {
 

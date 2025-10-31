@@ -1,12 +1,12 @@
 syntax = "proto3";
 package protocol;
 
-option java_package = "org.tron.trident.proto";
+option java_package = "org.linda.trident.proto";
 
 enum ResourceCode {
   BANDWIDTH = 0x00;
   ENERGY = 0x01;
-  TRON_POWER = 0x02;
+  LINDA_POWER = 0x02;
 }
 
 enum AccountType {
@@ -91,7 +91,7 @@ message SmartContract {
   string name = 7;
   int64 origin_energy_limit = 8;
   bytes code_hash = 9;
-  bytes trx_hash = 10;
+  bytes lind_hash = 10;
   int32 version = 11;
 }
 

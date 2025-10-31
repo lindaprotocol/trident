@@ -1,4 +1,4 @@
-package org.tron.trident.core.utils;
+package org.linda.trident.core.utils;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -7,16 +7,16 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
-import static org.tron.trident.core.ApiWrapper.generateAddress;
+import static org.linda.trident.core.ApiWrapper.generateAddress;
 
 import com.google.protobuf.ByteString;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import org.tron.trident.abi.datatypes.Address;
-import org.tron.trident.abi.datatypes.generated.Uint256;
-import org.tron.trident.core.exceptions.ContractCreateException;
-import org.tron.trident.crypto.Hash;
+import org.linda.trident.abi.datatypes.Address;
+import org.linda.trident.abi.datatypes.generated.Uint256;
+import org.linda.trident.core.exceptions.ContractCreateException;
+import org.linda.trident.crypto.Hash;
 
 public class UtilsTest {
 
@@ -64,7 +64,7 @@ public class UtilsTest {
 
   @Test
   public void testEncodeParameter() throws ContractCreateException {
-    List<org.tron.trident.abi.datatypes.Type<?>> params = new ArrayList<>();
+    List<org.linda.trident.abi.datatypes.Type<?>> params = new ArrayList<>();
     String testAddress = generateAddress().toBase58CheckAddress();
     params.add(new Address(testAddress));
     params.add(new Uint256(256));

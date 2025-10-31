@@ -1,4 +1,4 @@
-package org.tron.trident.core;
+package org.linda.trident.core;
 
 
 import static java.lang.Thread.sleep;
@@ -9,14 +9,14 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.tron.trident.core.exceptions.IllegalException;
-import org.tron.trident.core.key.KeyPair;
-import org.tron.trident.proto.Chain.Transaction;
-import org.tron.trident.proto.Contract.AssetIssueContract;
-import org.tron.trident.proto.Response.TransactionExtention;
-import org.tron.trident.proto.Response.TransactionInfo;
-import org.tron.trident.proto.Response.TransactionInfo.code;
-import org.tron.trident.utils.Base58Check;
+import org.linda.trident.core.exceptions.IllegalException;
+import org.linda.trident.core.key.KeyPair;
+import org.linda.trident.proto.Chain.Transaction;
+import org.linda.trident.proto.Contract.AssetIssueContract;
+import org.linda.trident.proto.Response.TransactionExtention;
+import org.linda.trident.proto.Response.TransactionInfo;
+import org.linda.trident.proto.Response.TransactionInfo.code;
+import org.linda.trident.utils.Base58Check;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Disabled("add private key to enable this case")
@@ -28,7 +28,7 @@ public class AssetTest extends BaseTest {
   @Test
   void genAccount() throws IllegalException, InterruptedException {
     account = ApiWrapper.generateAddress();
-    // createAsset need 1024 TRX
+    // createAsset need 1024 LIND
     TransactionExtention transaction
         = client.transfer(testAddress, account.toBase58CheckAddress(), 1050_000_000);
     Transaction signTransaction = client.signTransaction(transaction);

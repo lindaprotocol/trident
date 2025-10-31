@@ -11,10 +11,10 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi.spi;
+package org.linda.trident.abi.spi;
 
 import java.util.function.Supplier;
-import org.tron.trident.abi.FunctionReturnDecoder;
+import org.linda.trident.abi.FunctionReturnDecoder;
 
 /**
  * Function decoding Service Provider Interface.

@@ -11,16 +11,16 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi.datatypes;
+package org.linda.trident.abi.datatypes;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.stream.IntStream;
 import org.junit.jupiter.api.Test;
-import org.tron.trident.abi.datatypes.generated.StaticArray3;
-import org.tron.trident.abi.datatypes.generated.StaticArray32;
-import org.tron.trident.abi.datatypes.generated.Uint8;
+import org.linda.trident.abi.datatypes.generated.StaticArray3;
+import org.linda.trident.abi.datatypes.generated.StaticArray32;
+import org.linda.trident.abi.datatypes.generated.Uint8;
 
 public class StaticArrayTest {
 

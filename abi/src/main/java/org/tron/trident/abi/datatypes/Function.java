@@ -11,11 +11,11 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi.datatypes;
+package org.linda.trident.abi.datatypes;
 
 import java.util.List;
-import org.tron.trident.abi.TypeReference;
-import org.tron.trident.abi.Utils;
+import org.linda.trident.abi.TypeReference;
+import org.linda.trident.abi.Utils;
 
 /**
  * Function type.

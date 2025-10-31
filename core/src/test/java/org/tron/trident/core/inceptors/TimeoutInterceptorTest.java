@@ -1,4 +1,4 @@
-package org.tron.trident.core.inceptors;
+package org.linda.trident.core.inceptors;
 
 import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
@@ -9,11 +9,11 @@ import io.grpc.ClientInterceptor;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import org.tron.trident.core.ApiWrapper;
-import org.tron.trident.core.Constant;
-import org.tron.trident.core.interceptor.TimeoutInterceptor;
-import org.tron.trident.core.key.KeyPair;
-import org.tron.trident.proto.Response.BlockExtention;
+import org.linda.trident.core.ApiWrapper;
+import org.linda.trident.core.Constant;
+import org.linda.trident.core.interceptor.TimeoutInterceptor;
+import org.linda.trident.core.key.KeyPair;
+import org.linda.trident.proto.Response.BlockExtention;
 
 public class TimeoutInterceptorTest {
 

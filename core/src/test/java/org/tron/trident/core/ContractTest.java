@@ -1,4 +1,4 @@
-package org.tron.trident.core;
+package org.linda.trident.core;
 
 
 import static java.lang.Thread.sleep;
@@ -15,26 +15,26 @@ import java.util.List;
 import java.util.Random;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.tron.trident.abi.FunctionEncoder;
-import org.tron.trident.abi.FunctionReturnDecoder;
-import org.tron.trident.abi.TypeReference;
-import org.tron.trident.abi.datatypes.Address;
-import org.tron.trident.abi.datatypes.Bool;
-import org.tron.trident.abi.datatypes.Function;
-import org.tron.trident.abi.datatypes.Type;
-import org.tron.trident.abi.datatypes.generated.Uint256;
-import org.tron.trident.core.contract.Contract;
-import org.tron.trident.core.exceptions.IllegalException;
-import org.tron.trident.core.transaction.BlockId;
-import org.tron.trident.core.transaction.TransactionBuilder;
-import org.tron.trident.core.utils.ByteArray;
-import org.tron.trident.core.utils.Sha256Hash;
-import org.tron.trident.proto.Chain.Transaction;
-import org.tron.trident.proto.Response.EstimateEnergyMessage;
-import org.tron.trident.proto.Response.TransactionExtention;
-import org.tron.trident.proto.Response.TransactionInfo;
-import org.tron.trident.proto.Response.TransactionInfo.code;
-import org.tron.trident.utils.Base58Check;
+import org.linda.trident.abi.FunctionEncoder;
+import org.linda.trident.abi.FunctionReturnDecoder;
+import org.linda.trident.abi.TypeReference;
+import org.linda.trident.abi.datatypes.Address;
+import org.linda.trident.abi.datatypes.Bool;
+import org.linda.trident.abi.datatypes.Function;
+import org.linda.trident.abi.datatypes.Type;
+import org.linda.trident.abi.datatypes.generated.Uint256;
+import org.linda.trident.core.contract.Contract;
+import org.linda.trident.core.exceptions.IllegalException;
+import org.linda.trident.core.transaction.BlockId;
+import org.linda.trident.core.transaction.TransactionBuilder;
+import org.linda.trident.core.utils.ByteArray;
+import org.linda.trident.core.utils.Sha256Hash;
+import org.linda.trident.proto.Chain.Transaction;
+import org.linda.trident.proto.Response.EstimateEnergyMessage;
+import org.linda.trident.proto.Response.TransactionExtention;
+import org.linda.trident.proto.Response.TransactionInfo;
+import org.linda.trident.proto.Response.TransactionInfo.code;
+import org.linda.trident.utils.Base58Check;
 
 @Disabled("add private key to enable this case")
 class ContractTest extends BaseTest {
@@ -127,7 +127,7 @@ class ContractTest extends BaseTest {
         new Uint256(BigInteger.valueOf(100))  // initTotal 100
     );
 
-    //callValue 1TRX
+    //callValue 1LIND
     TransactionExtention transactionExtention = client.deployContract("testDConstructorParams",
         abiStr, bytecode,
         constructorParams, 100_000_000L, 100,
@@ -148,7 +148,7 @@ class ContractTest extends BaseTest {
     String abiStr = "{\"entrys\":[{\"inputs\":[],\"stateMutability\":\"payable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"toAddress\",\"type\":\"address\"},{\"internalType\":\"trcToken\",\"name\":\"id\",\"type\":\"trcToken\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TransferTokenTo\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getResultInCon\",\"outputs\":[{\"internalType\":\"trcToken\",\"name\":\"\",\"type\":\"trcToken\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"msgTokenValueAndTokenIdTest\",\"outputs\":[{\"internalType\":\"trcToken\",\"name\":\"\",\"type\":\"trcToken\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"}]}";
     String bytecode = "60806040526000805560006001556000600255d3600081905550d260018190555034600281905550610332806100366000396000f3fe6080604052600436106100345760003560e01c806305c24200146100395780633be9ece71461005957806371dc08ce14610075575b600080fd5b610041610095565b60405161005093929190610214565b60405180910390f35b610073600480360381019061006e91906101a3565b6100ad565b005b61007d610135565b60405161008c93929190610214565b60405180910390f35b60008060008054600154600254925092509250909192565b8273ffffffffffffffffffffffffffffffffffffffff166108fc82908115029084801580156100db57600080fd5b5080678000000000000000111580156100f357600080fd5b5080620f42401015801561010657600080fd5b5060405160006040518083038185878a8ad094505050505015801561012f573d6000803e3d6000fd5b50505050565b600080600080d390506000d290506000349050828282955095509550505050909192565b600081359050610168816102b7565b6101718161024b565b905092915050565b600081359050610188816102ce565b92915050565b60008135905061019d816102e5565b92915050565b6000806000606084860312156101bc576101bb6102b2565b5b60006101ca86828701610159565b93505060206101db86828701610179565b92505060406101ec8682870161018e565b9150509250925092565b6101ff8161025d565b82525050565b61020e816102a8565b82525050565b600060608201905061022960008301866101f6565b6102366020830185610205565b6102436040830184610205565b949350505050565b600061025682610267565b9050919050565b6000819050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600074ffffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b6102c081610287565b81146102cb57600080fd5b50565b6102d78161025d565b81146102e257600080fd5b50565b6102ee816102a8565b81146102f957600080fd5b5056fea26474726f6e58221220fdf0f3a4587a08bebc9e8382b06c5f235f5836675d1cefa1cd29157296a52b8264736f6c63430008060033";
 
-    //callValue 1TRX
+    //callValue 1LIND
     //tokenId
     //tokenValue 10
     TransactionExtention transactionExtention = client.deployContract("testDeployContractWithTRC10",
@@ -234,15 +234,15 @@ class ContractTest extends BaseTest {
 
   @Test
   void testEstimateEnergyV2WithCallValue() {
-    //  function deposit() external payable returns (uint256 strxAmount);
-    String strx = "TZ8du1HkatTWDbS6FLZei4dQfjfpSm9mxp"; //nile
+    //  function deposit() external payable returns (uint256 slindAmount);
+    String slind = "TZ8du1HkatTWDbS6FLZei4dQfjfpSm9mxp"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
     Function depositFunction = new Function("deposit",
         Collections.emptyList(),
         Collections.singletonList(new TypeReference<Uint256>() {
         }));
     String encodedHex = FunctionEncoder.encode(depositFunction);
-    EstimateEnergyMessage estimateEnergyMessage = client.estimateEnergy(fromAddr, strx,
+    EstimateEnergyMessage estimateEnergyMessage = client.estimateEnergy(fromAddr, slind,
         encodedHex, 1_000_000L, 0, "");
     //System.out.println(estimateEnergyMessage.getEnergyRequired());
     assertTrue(estimateEnergyMessage.getEnergyRequired() > 0);
@@ -304,7 +304,7 @@ class ContractTest extends BaseTest {
     Contract originContract = client.getContract(originContractAddress);
     assertFalse(originContract.getBytecode().isEmpty());
 
-    assertTrue(contract.getTrxHash().toByteArray().length > 0);
+    assertTrue(contract.getLindHash().toByteArray().length > 0);
     assertTrue(contract.getCodeHash().toByteArray().length > 0);
     assertEquals(0, contract.getVersion());
   }

@@ -1,10 +1,10 @@
-package org.tron.trident.core.contract.abi;
+package org.linda.trident.core.contract.abi;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import org.tron.trident.proto.Common.SmartContract.ABI;
-import org.tron.trident.proto.Common.SmartContract.ABI.Entry.EntryType;
+import org.linda.trident.proto.Common.SmartContract.ABI;
+import org.linda.trident.proto.Common.SmartContract.ABI.Entry.EntryType;
 
 class AbiUtilsTest {
 

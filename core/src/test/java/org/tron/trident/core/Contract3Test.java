@@ -1,9 +1,9 @@
-package org.tron.trident.core;
+package org.linda.trident.core;
 
 
 import org.junit.jupiter.api.Test;
-import org.tron.trident.core.contract.Contract;
-import org.tron.trident.proto.Common.SmartContract;
+import org.linda.trident.core.contract.Contract;
+import org.linda.trident.proto.Common.SmartContract;
 
 public class Contract3Test {
 
@@ -36,7 +36,7 @@ public class Contract3Test {
         + "\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"seed\",\"type\":"
         + "\"uint256\"}],\"name\":\"getRandom\",\"outputs\":[{\"internalType\":\"uint256\","
         + "\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}"
-        + ",{\"inputs\":[],\"name\":\"payMeTRX\",\"outputs\":[{\"internalType\":\"uint256\","
+        + ",{\"inputs\":[],\"name\":\"payMeLIND\",\"outputs\":[{\"internalType\":\"uint256\","
         + "\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":"
         + "\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"n\",\"type\":"
         + "\"uint256\"}],\"name\":\"writeNumber\",\"outputs\":[{\"internalType\":\"uint256\","

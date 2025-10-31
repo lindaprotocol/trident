@@ -1,4 +1,4 @@
-package org.tron.trident.core;
+package org.linda.trident.core;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,7 +6,7 @@ import java.util.Properties;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
-import org.tron.trident.core.key.KeyPair;
+import org.linda.trident.core.key.KeyPair;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BaseTest {
@@ -22,16 +22,16 @@ public class BaseTest {
     try {
       // load config
       properties = loadConfig();
-      String privateKey = properties.getProperty("tron.private-key");
+      String privateKey = properties.getProperty("linda.private-key");
       KeyPair keyPair;
       try {
         keyPair = new KeyPair(privateKey);
       } catch (Exception e) {
         throw new RuntimeException("invalid private-key, "
-            + "please check tron.private-key value in application-test.properties");
+            + "please check linda.private-key value in application-test.properties");
       }
 
-      tokenId = properties.getProperty("tron.tokenId");
+      tokenId = properties.getProperty("linda.tokenId");
 
       client = ApiWrapper.ofNile(privateKey);
       testAddress = keyPair.toBase58CheckAddress();

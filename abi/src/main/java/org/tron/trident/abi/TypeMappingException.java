@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi;
+package org.linda.trident.abi;
 
 public class TypeMappingException extends RuntimeException {
 

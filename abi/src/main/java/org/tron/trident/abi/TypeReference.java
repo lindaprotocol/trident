@@ -11,16 +11,16 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi;
+package org.linda.trident.abi;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.tron.trident.abi.datatypes.AbiTypes;
-import org.tron.trident.abi.datatypes.Array;
-import org.tron.trident.abi.datatypes.DynamicArray;
-import org.tron.trident.abi.datatypes.StaticArray;
+import org.linda.trident.abi.datatypes.AbiTypes;
+import org.linda.trident.abi.datatypes.Array;
+import org.linda.trident.abi.datatypes.DynamicArray;
+import org.linda.trident.abi.datatypes.StaticArray;
 
 /**
  * Type wrapper to get around limitations of Java's type erasure. This is so that we can pass around
@@ -33,7 +33,7 @@ import org.tron.trident.abi.datatypes.StaticArray;
  * href="https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Type.html">Type</a> to avoid
  * working around this fundamental generics limitation.
  */
-public abstract class TypeReference<T extends org.tron.trident.abi.datatypes.Type>
+public abstract class TypeReference<T extends org.linda.trident.abi.datatypes.Type>
     implements Comparable<TypeReference<T>> {
 
   protected static Pattern ARRAY_SUFFIX = Pattern.compile("\\[(\\d*)]");
@@ -97,12 +97,12 @@ public abstract class TypeReference<T extends org.tron.trident.abi.datatypes.Typ
     }
   }
 
-  public static <T extends org.tron.trident.abi.datatypes.Type> TypeReference<T> create(
+  public static <T extends org.linda.trident.abi.datatypes.Type> TypeReference<T> create(
       Class<T> cls) {
     return create(cls, false);
   }
 
-  public static <T extends org.tron.trident.abi.datatypes.Type> TypeReference<T> create(
+  public static <T extends org.linda.trident.abi.datatypes.Type> TypeReference<T> create(
       Class<T> cls, boolean indexed) {
     return new TypeReference<T>(indexed) {
       public java.lang.reflect.Type getType() {
@@ -120,7 +120,7 @@ public abstract class TypeReference<T extends org.tron.trident.abi.datatypes.Typ
    * @return returns
    * @throws ClassNotFoundException when the class cannot be found.
    */
-  protected static Class<? extends org.tron.trident.abi.datatypes.Type> getAtomicTypeClass(
+  protected static Class<? extends org.linda.trident.abi.datatypes.Type> getAtomicTypeClass(
       String solidityType, boolean primitives) throws ClassNotFoundException {
 
     if (ARRAY_SUFFIX.matcher(solidityType).find()) {
@@ -133,7 +133,7 @@ public abstract class TypeReference<T extends org.tron.trident.abi.datatypes.Typ
   }
 
   public abstract static class StaticArrayTypeReference<T extends
-      org.tron.trident.abi.datatypes.Type> extends TypeReference<T> {
+      org.linda.trident.abi.datatypes.Type> extends TypeReference<T> {
 
     private final int size;
 
@@ -157,14 +157,14 @@ public abstract class TypeReference<T extends org.tron.trident.abi.datatypes.Typ
 
     Matcher nextSquareBrackets = ARRAY_SUFFIX.matcher(solidityType);
     if (!nextSquareBrackets.find()) {
-      final Class<? extends org.tron.trident.abi.datatypes.Type> typeClass =
+      final Class<? extends org.linda.trident.abi.datatypes.Type> typeClass =
           getAtomicTypeClass(solidityType, primitives);
       return create(typeClass, indexed);
     }
 
     int lastReadStringPosition = nextSquareBrackets.start();
 
-    final Class<? extends org.tron.trident.abi.datatypes.Type> baseClass =
+    final Class<? extends org.linda.trident.abi.datatypes.Type> baseClass =
         getAtomicTypeClass(solidityType.substring(0, lastReadStringPosition), primitives);
 
     TypeReference arrayWrappedType = create(baseClass, indexed);
@@ -208,7 +208,7 @@ public abstract class TypeReference<T extends org.tron.trident.abi.datatypes.Typ
         if (arraySizeInt <= StaticArray.MAX_SIZE_OF_STATIC_ARRAY) {
           arrayclass =
               Class.forName(
-                  "org.tron.trident.abi.datatypes.generated.StaticArray" + arraySize);
+                  "org.linda.trident.abi.datatypes.generated.StaticArray" + arraySize);
         } else {
           arrayclass = StaticArray.class;
         }

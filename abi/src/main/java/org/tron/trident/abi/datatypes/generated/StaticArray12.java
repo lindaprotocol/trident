@@ -1,13 +1,13 @@
-package org.tron.trident.abi.datatypes.generated;
+package org.linda.trident.abi.datatypes.generated;
 
 import java.util.List;
-import org.tron.trident.abi.datatypes.StaticArray;
-import org.tron.trident.abi.datatypes.Type;
+import org.linda.trident.abi.datatypes.StaticArray;
+import org.linda.trident.abi.datatypes.Type;
 
 /**
  * Auto generated code.
  * <p><strong>Do not modifiy!</strong>
- * <p>Please use org.tron.trident.codegen.AbiTypesGenerator in the
+ * <p>Please use org.linda.trident.codegen.AbiTypesGenerator in the
  * <a href="https://github.com/web3j/web3j/tree/master/codegen">codegen module</a> to update.
  */
 public class StaticArray12<T extends Type> extends StaticArray<T> {

@@ -1,4 +1,4 @@
-package org.tron.trident.core.inceptors;
+package org.linda.trident.core.inceptors;
 
 import io.grpc.*;
 

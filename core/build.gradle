@@ -74,7 +74,7 @@ tasks.named('processTestResources') {
 }
 
 clean.doFirst {
-    delete "src/main/java/org/tron/trident/api"
-    delete "src/main/java/org/tron/trident/proto"
+    delete "src/main/java/org/linda/trident/api"
+    delete "src/main/java/org/linda/trident/proto"
 }
 

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package protocol;
 
-option java_package = "org.tron.trident.api";
+option java_package = "org.linda.trident.api";
 option java_outer_classname = "GrpcAPI";
 
 
@@ -92,7 +92,7 @@ service Wallet {
   rpc ListNodes(EmptyMessage) returns (NodeList) {}
 
   rpc GetChainParameters(EmptyMessage) returns (ChainParameters) {}
-  // java-tron return default 0
+  // java-linda return default 0
   rpc TotalTransaction(EmptyMessage) returns (NumberMessage) {}
   rpc GetNextMaintenanceTime(EmptyMessage) returns (NumberMessage) {}
 
@@ -212,7 +212,7 @@ service Wallet {
   rpc GetDelegatedResourceV2 (DelegatedResourceMessage) returns (DelegatedResourceList) {}
   rpc GetDelegatedResourceAccountIndexV2 (BytesMessage) returns (DelegatedResourceAccountIndex) {}
   //query the network
-  rpc GetBurnTrx (EmptyMessage) returns (NumberMessage) {}
+  rpc GetBurnLind (EmptyMessage) returns (NumberMessage) {}
   rpc GetBlockBalanceTrace (BlockIdentifier) returns (BlockBalanceTrace) {}
 
   //voting&SRs
@@ -258,7 +258,7 @@ service WalletSolidity {
   rpc GetAssetIssueListByName (BytesMessage) returns (AssetIssueList) {}
   rpc GetAssetIssueById (BytesMessage) returns (AssetIssueContract) {}
 
-  rpc GetBurnTrx (EmptyMessage) returns (NumberMessage) {}
+  rpc GetBurnLind (EmptyMessage) returns (NumberMessage) {}
 
   //query resource price
   rpc GetBandwidthPrices (EmptyMessage) returns (PricesResponseMessage) {}

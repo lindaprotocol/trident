@@ -1,7 +1,7 @@
 syntax = "proto3";
 package protocol;
 
-option java_package = "org.tron.trident.proto";
+option java_package = "org.linda.trident.proto";
 
 import "core/common.proto";
 
@@ -43,7 +43,7 @@ message AssetIssueContract {
   bytes abbr = 3;
   int64 total_supply = 4;
   repeated FrozenSupply frozen_supply = 5;
-  int32 trx_num = 6;
+  int32 lind_num = 6;
   int32 precision = 7;
   int32 num = 8;
   int64 start_time = 9;

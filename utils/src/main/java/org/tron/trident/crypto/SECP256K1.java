@@ -13,7 +13,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-package org.tron.trident.crypto;
+package org.linda.trident.crypto;
 
 import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
@@ -41,10 +41,10 @@ import org.bouncycastle.math.ec.ECAlgorithms;
 import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.math.ec.FixedPointCombMultiplier;
 import org.bouncycastle.math.ec.custom.sec.SecP256K1Curve;
-import org.tron.trident.crypto.tuwenitypes.Bytes;
-import org.tron.trident.crypto.tuwenitypes.Bytes32;
-import org.tron.trident.crypto.tuwenitypes.MutableBytes;
-import org.tron.trident.crypto.tuwenitypes.UInt256;
+import org.linda.trident.crypto.tuwenitypes.Bytes;
+import org.linda.trident.crypto.tuwenitypes.Bytes32;
+import org.linda.trident.crypto.tuwenitypes.MutableBytes;
+import org.linda.trident.crypto.tuwenitypes.UInt256;
 
 /*
  * Adapted from the BitcoinJ ECKey (Apache 2 License) implementation:

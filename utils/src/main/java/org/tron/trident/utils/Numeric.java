@@ -11,13 +11,13 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.utils;
+package org.linda.trident.utils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Arrays;
-import org.tron.trident.exceptions.MessageDecodingException;
-import org.tron.trident.exceptions.MessageEncodingException;
+import org.linda.trident.exceptions.MessageDecodingException;
+import org.linda.trident.exceptions.MessageEncodingException;
 
 /**
  * Message codec functions.

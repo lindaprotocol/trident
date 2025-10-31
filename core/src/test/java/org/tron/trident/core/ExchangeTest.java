@@ -1,4 +1,4 @@
-package org.tron.trident.core;
+package org.linda.trident.core;
 
 
 import static java.lang.Thread.sleep;
@@ -10,12 +10,12 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.tron.trident.core.exceptions.IllegalException;
-import org.tron.trident.proto.Chain.Transaction;
-import org.tron.trident.proto.Response.Exchange;
-import org.tron.trident.proto.Response.TransactionExtention;
-import org.tron.trident.proto.Response.TransactionInfo;
-import org.tron.trident.proto.Response.TransactionInfo.code;
+import org.linda.trident.core.exceptions.IllegalException;
+import org.linda.trident.proto.Chain.Transaction;
+import org.linda.trident.proto.Response.Exchange;
+import org.linda.trident.proto.Response.TransactionExtention;
+import org.linda.trident.proto.Response.TransactionInfo;
+import org.linda.trident.proto.Response.TransactionInfo.code;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @Disabled("add private key to enable this case")
@@ -27,8 +27,8 @@ public class ExchangeTest extends BaseTest {
   @Test
   void testExchangeCreate() throws InterruptedException, IllegalException {
     // change the secondToken as necessary
-    // this will cost 1024 TRX,
-    // unit of TRX is sun, the decimal of token 1000587 is 6.
+    // this will cost 1024 LIND,
+    // unit of LIND is sun, the decimal of token 1000587 is 6.
     TransactionExtention transactionExtention = client.exchangeCreate(testAddress, "_",
         200_000_000L, tokenId, 100_000_000L);
     Transaction transaction = client.signTransaction(transactionExtention);
@@ -41,7 +41,7 @@ public class ExchangeTest extends BaseTest {
 
     exchangeID = transactionInfo.getExchangeId();
     //System.out.println("exchangeID:" + exchangeID);
-    // visit this for more info: https://nile.trongrid.io/wallet/getexchangebyid?id={changeid}
+    // visit this for more info: https://nile.lindagrid.io/wallet/getexchangebyid?id={changeid}
     Exchange exchange = client.getExchangeById(String.valueOf(exchangeID));
     assertEquals(200_000_000L, exchange.getFirstTokenBalance());
     assertEquals(100_000_000L, exchange.getSecondTokenBalance());

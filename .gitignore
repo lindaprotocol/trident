@@ -28,5 +28,5 @@ build/
 demo/
 
 # proto gen file
-/core/src/main/java/org/tron/trident/proto/
-/core/src/main/java/org/tron/trident/api/
+/core/src/main/java/org/linda/trident/proto/
+/core/src/main/java/org/linda/trident/api/

@@ -11,7 +11,7 @@
  * specific language governing permissions and limitations under the License.
  */
 
-package org.tron.trident.abi.datatypes;
+package org.linda.trident.abi.datatypes;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,7 +24,7 @@ public abstract class StaticArray<T extends Type> extends Array<T> {
 
   /**
    * Warning: increasing this constant will cause more generated StaticArrayN types, see:
-   * org.tron.trident.codegen.AbiTypesGenerator#generateStaticArrayTypes
+   * org.linda.trident.codegen.AbiTypesGenerator#generateStaticArrayTypes
    */
   public static final int MAX_SIZE_OF_STATIC_ARRAY = 32;
 
