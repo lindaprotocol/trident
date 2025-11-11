@@ -16,12 +16,12 @@ Trident is a lightweight Java SDK for interacting with the LINDA blockchain. It 
 
 Trident-java is compiled with java version 1.8 and gradle 7.6.
 
-Latest version can be found on [Maven Central](https://mvnrepository.com/artifact/io.github.tronprotocol/trident).
+Latest version can be found on [Maven Central](https://mvnrepository.com/artifact/io.github.lindaprotocol/trident).
 
 ### Gradle
 
 ```groovy
-implementation("io.github.tronprotocol:trident:<version>") // Check latest version from Maven Central
+implementation("com.github.lindaprotocol:trident:<version>") // Check latest version from Maven Central
 ```
 
 ### Maven
@@ -30,7 +30,7 @@ Add repo setting:
 
 ```xml
 <dependency>
-  <groupId>io.github.tronprotocol</groupId>
+  <groupId>com.github.lindaprotocol</groupId>
   <artifactId>trident</artifactId>
   <version>[version]</version>
 </dependency>
@@ -119,5 +119,5 @@ Starting from version 0.9.2, releases are published to Maven repository and sign
 
 ```
 pub: 3149 FCA5 6377 2D11 2624 9C36 CC3F 8CEA 7B0C 74D6
-uid: buildtrident@tron.network
+uid: buildtrident@linda.network
 ```
