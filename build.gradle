@@ -22,6 +22,8 @@ apply plugin: 'java'
 apply plugin: 'java-library'
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'maven-publish'
+apply plugin: "io.github.gradle-nexus.publish-plugin"
+apply plugin: "signing"
 
 ext {
     bouncycastleVersion = '1.78.1'
@@ -96,26 +98,20 @@ subprojects {
         }
     }
 
-    tasks.register('sourcesJar', Jar) {
-        dependsOn classes
-        classifier = 'sources'
-        from sourceSets.main.allSource
-    }
+    // tasks.register('sourcesJar', Jar) {
+    //     dependsOn classes
+    //     classifier = 'sources'
+    //     from sourceSets.main.allSource
+    // }
 
-    tasks.register('javadocJar', Jar) {
-        dependsOn javadoc
-        classifier = 'javadoc'
-        from javadoc.destinationDir
-    }
+    // tasks.register('javadocJar', Jar) {
+    //     dependsOn javadoc
+    //     classifier = 'javadoc'
+    //     from javadoc.destinationDir
+    // }
 
     tasks.withType(JavaCompile).configureEach {
         //options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-    }
-
-    artifacts {
-        archives jar
-        archives sourcesJar
-        archives javadocJar
     }
 
     configurations {
@@ -136,7 +132,7 @@ subprojects {
     checkstyleTest {
         source = files() //use empty files to ignore test class
     }
-}
+   }
 
 shadowJar {
     zip64 = true
@@ -180,4 +176,81 @@ artifacts {
     archives jar
     archives javadocJar
     archives sourcesJar
+}
+
+publishing {
+    publications {
+        trident(MavenPublication) {
+            from components.java
+
+            artifact tasks.sourcesJar
+            artifact tasks.javadocJar
+
+            pom {
+                name = 'Trident'
+                description = 'Linda blockchain Java SDK with comprehensive API support'
+                url = 'https://github.com/lindaprotocol/trident'
+                
+                licenses {
+                    license {
+                        name = 'Apache License 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0'
+                        distribution = 'repo'
+                    }
+                }
+              
+                developers {
+                    developer {
+                        name = "LINDA Foundation Development Team"
+                        email = "lindaprotocol@linda.network"
+                        organization = "LINDA Foundation"
+                        organizationUrl = "https://linda.network/"
+                    }
+                }
+            
+                scm {
+                    connection = 'scm:git:git://github.com/lindaprotocol/trident.git'
+                    developerConnection = 'scm:git:ssh://github.com:lindaprotocol/trident.git'
+                    url = 'https://github.com/lindaprotocol/trident/tree/main'
+                }
+            }
+        }
+    }
+}
+
+
+// Configure Nexus publishing
+nexusPublishing {
+    repositories {
+        sonatype {
+            packageGroup = "io.github.lindaprotocol"
+            stagingProfileId = "io.github.lindaprotocol"
+            nexusUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/content/repositories/snapshots/"))
+            
+            username = findProperty("sonatypeUsername") ?: System.getenv("SONATYPE_USERNAME")
+            password = findProperty("sonatypePassword") ?: System.getenv("SONATYPE_PASSWORD")
+        }
+    }
+}
+
+// Signing configuration for Maven Central
+signing {
+    def signingKey = findProperty("signingKey")
+    def signingPassword = findProperty("signingPassword")
+
+    if (signingKey && signingPassword) {
+        useInMemoryPgpKeys(signingKey, signingPassword)
+        sign publishing.publications.trident
+    } else {
+        def keyId = findProperty("signing.keyId")
+        def password = findProperty("signing.password")
+        def secretKeyRingFile = findProperty("signing.secretKeyRingFile")
+
+        if (keyId && password && secretKeyRingFile) {
+            sign publishing.publications.trident
+        } else {
+            println "Warning: Signing disabled. No signing credentials found."
+        }
+    }
 }

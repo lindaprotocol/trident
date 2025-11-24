@@ -71,9 +71,9 @@ class ApiWrapperTest extends BaseTest {
   @Test
   void testSendLrc20Transaction() {
     // transfer(address,uint256) returns (bool)
-    String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
+    String usdtAddr = "LgoK4yUXZf9KFA4RB8PamPwBMAy3RAUqBT"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
-    String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
+    String toAddress = "LezdEi3mUBAwRsihzYjMD6wbKPULJguPN3";
     Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(10).multiply(BigInteger.valueOf(10).pow(6)))),
@@ -153,7 +153,7 @@ class ApiWrapperTest extends BaseTest {
 
   @Test
   void testGetContractInfo() {
-    String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
+    String usdtAddr = "LgoK4yUXZf9KFA4RB8PamPwBMAy3RAUqBT"; //nile
     SmartContractDataWrapper smartContractDataWrapper = client.getContractInfo(usdtAddr);
     assertEquals(smartContractDataWrapper.getSmartContract().getName(), "TetherToken");
     assertTrue(smartContractDataWrapper.getSmartContract().getAbi().getEntrysCount() > 0);
@@ -163,7 +163,7 @@ class ApiWrapperTest extends BaseTest {
 
   @Test
   void testGetMarketOrderByAccount() {
-    String account = "TEqZpKG8cLquDHNVGcHXJhEQMoWE653nBH"; //nile
+    String account = "LQ6K5UCEYGy1Jv11rUd74Zc2fE8C3Ys6yq"; //nile
     MarketOrderList marketOrderList = client.getMarketOrderByAccount(account);
     //System.out.println(marketOrderList.getOrdersCount());
     //System.out.println(marketOrderList.getOrders(0).getOrderId());
@@ -182,14 +182,14 @@ class ApiWrapperTest extends BaseTest {
         marketOrderList.getOrders(0).getOwnerAddress().toByteArray());
     //System.out.println("ownerAddress:" + addr);
     Address address = new Address(addr);
-    //TEqZpKG8cLquDHNVGcHXJhEQMoWE653nBH
+    //LQ6K5UCEYGy1Jv11rUd74Zc2fE8C3Ys6yq
     //System.out.println(address);
   }
 
   @Test
   void testGetMarketOrderById() throws IllegalException {
     String orderId = "4503c83790b5f739b58b94c28f1e98357c3dc98f6b6877c8ee792d3ea3a4465a";
-    String ownerAddress = "TEqZpKG8cLquDHNVGcHXJhEQMoWE653nBH";
+    String ownerAddress = "LQ6K5UCEYGy1Jv11rUd74Zc2fE8C3Ys6yq";
     MarketOrder marketOrder = client.getMarketOrderById(orderId);
     assertEquals(marketOrder.getOrderId(), ByteString.copyFrom(ByteArray.fromHexString(orderId)));
     assertEquals(marketOrder.getOwnerAddress(), ApiWrapper.parseAddress(ownerAddress));
@@ -230,7 +230,7 @@ class ApiWrapperTest extends BaseTest {
   @Test
   void testGetProposalById() throws IllegalException {
     Proposal proposal = client.getProposalById("1");
-    String proposalAddress = "TD23EqH3ixYMYh8CMXKdHyQWjePi3KQvxV";
+    String proposalAddress = "LNGnVzD9etfTeKkiwPfD3qn9351g1HYror";
     assertEquals(proposal.getProposerAddress(), ApiWrapper.parseAddress(proposalAddress));
     assertTrue(proposal.getApprovalsCount() > 0);
   }

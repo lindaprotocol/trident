@@ -74,8 +74,8 @@ public class TimeoutInterceptorTest {
   void testClientInterceptorWithLongTimeOut() {
 
     ApiWrapper clientDefault = new ApiWrapper(
-        Constant.FULLNODE_NILE,
-        Constant.FULLNODE_NILE_SOLIDITY,
+        Constant.LINDAGRID_MAIN_NET,
+        Constant.LINDAGRID_MAIN_NET_SOLIDITY,
         KeyPair.generate().toPrivateKey(),
         10_000 //10s
     );

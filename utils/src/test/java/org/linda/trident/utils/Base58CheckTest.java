@@ -11,10 +11,10 @@ public class Base58CheckTest {
 
   @Test
   public void testAddressConverting() {
-    byte[] rawAddr = Hex.decode("4159d3ad9d126e153b9564417d3a05cf51c1964edf");
+    byte[] rawAddr = Hex.decode("3059d3ad9d126e153b9564417d3a05cf51c1964edf");
     Assertions.assertArrayEquals(rawAddr,
-        Base58Check.base58ToBytes("TJAAinkKN2h9KxtBZXw6SyL7HwCQXnzFsE"));
+        Base58Check.base58ToBytes("LTQuywgRHxpFRbWi9QGgCqhjbMpNQwWYrj"));
     Assertions.assertEquals(Base58Check.bytesToBase58(rawAddr),
-        "TJAAinkKN2h9KxtBZXw6SyL7HwCQXnzFsE");
+        "LTQuywgRHxpFRbWi9QGgCqhjbMpNQwWYrj");
   }
 }

@@ -105,7 +105,7 @@ public class DefaultFunctionEncoderTest {
             Arrays.asList(
                 new DynamicBytes("dave".getBytes()),
                 new Bool(true),
-                new Address("T9yKC9LCoVvmhaFxKcdK9iL18TUWtyFtjh"),
+                new Address("LKE4TJGJjS3soCtUuUxtuahdRt6Uo5bbv4"),
                 new DynamicArray<>(
                     new Uint(BigInteger.ONE),
                     new Uint(BigInteger.valueOf(2)),

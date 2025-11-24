@@ -1020,8 +1020,8 @@ public class TypeDecoderTest {
 
 //    assertEquals(
 //        TypeDecoder.instantiateType(
-//            "address", "4152b08330e05d731e38c856c1043288f7d9744"),
-//        (new Address("T9yKC9LCoVvmhaFxKcdK9iL18TUWtyFtjh")));
+//            "address", "3052b08330e05d731e38c856c1043288f7d9744"),
+//        (new Address("LKE4TJGJjS3soCtUuUxtuahdRt6Uo5bbv4")));
 
     assertEquals(
         TypeDecoder.instantiateType("address", BigInteger.ONE),

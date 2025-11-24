@@ -56,7 +56,7 @@ public class KeyPair {
     digest.update(pubKey.getEncoded(), 0, 64);
     byte[] raw = digest.digest();
     byte[] rawAddr = new byte[21];
-    rawAddr[0] = 0x41;
+    rawAddr[0] = 0x30;
     System.arraycopy(raw, 12, rawAddr, 1, 20);
 
     return rawAddr;

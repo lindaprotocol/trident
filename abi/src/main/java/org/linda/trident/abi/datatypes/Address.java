@@ -42,10 +42,10 @@ public class Address implements Type<String> {
   }
 
   public Address(String value) {
-    if (value.startsWith("T")) { //length = 34
+    if (value.startsWith("L")) { //length = 34
       byte[] rawValue = Base58Check.base58ToBytes(value);
       this.value = new Uint(DEFAULT_LENGTH, Numeric.toBigInt(Arrays.copyOfRange(rawValue, 1, 21)));
-    } else if (value.startsWith("41") && value.length() == 42) {
+    } else if (value.startsWith("30") && value.length() == 42) {
       this.value = new Uint(DEFAULT_LENGTH, Numeric.toBigInt(value.substring(2)));
     } else { //40
       // ETH compatible
@@ -69,7 +69,7 @@ public class Address implements Type<String> {
   @Override
   public String toString() {
     byte[] rawAddr = Numeric.toBytesPadded(value.getValue(), 21);
-    rawAddr[0] = 0x41;
+    rawAddr[0] = 0x30;
     return Base58Check.bytesToBase58(rawAddr);
   }
 

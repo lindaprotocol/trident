@@ -42,7 +42,7 @@ class ContractTest extends BaseTest {
   @Test
   void testTransferLrc10() throws InterruptedException, IllegalException {
     TransactionExtention transactionExtention = client.transferLrc10(testAddress,
-        "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
+        "LKRkiesBJ4o7LyErYFYasZPnM4rnGp1H9u", Integer.parseInt(tokenId), 100);
     Transaction transaction = client.signTransaction(transactionExtention);
     String txId = client.broadcastTransaction(transaction);
 
@@ -55,7 +55,7 @@ class ContractTest extends BaseTest {
   @Test
   void testTransfer() throws InterruptedException, IllegalException {
     TransactionExtention transactionExtention = client.transfer(testAddress,
-        "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", 1_000_000L);
+        "LKRkiesBJ4o7LyErYFYasZPnM4rnGp1H9u", 1_000_000L);
     Transaction transaction = client.signTransaction(transactionExtention);
     String txId = client.broadcastTransaction(transaction);
 
@@ -169,9 +169,9 @@ class ContractTest extends BaseTest {
   @Test
   void testTriggerContract() throws Exception {
     // transfer(address,uint256) returns (bool)
-    String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
+    String usdtAddr = "LgoK4yUXZf9KFA4RB8PamPwBMAy3RAUqBT"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
-    String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
+    String toAddress = "LezdEi3mUBAwRsihzYjMD6wbKPULJguPN3";
     Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(10).multiply(BigInteger.valueOf(10).pow(6)))),
@@ -195,9 +195,9 @@ class ContractTest extends BaseTest {
   @Test
   void testTriggerContractWithFeeLimit() {
     // transfer(address,uint256) returns (bool)
-    String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
+    String usdtAddr = "LgoK4yUXZf9KFA4RB8PamPwBMAy3RAUqBT"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
-    String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
+    String toAddress = "LezdEi3mUBAwRsihzYjMD6wbKPULJguPN3";
     Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(10).multiply(BigInteger.valueOf(10).pow(6)))),
@@ -216,9 +216,9 @@ class ContractTest extends BaseTest {
   @Test
   void testEstimateEnergyV2() {
     // transfer(address,uint256) returns (bool)
-    String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
+    String usdtAddr = "LgoK4yUXZf9KFA4RB8PamPwBMAy3RAUqBT"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
-    String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
+    String toAddress = "LezdEi3mUBAwRsihzYjMD6wbKPULJguPN3";
     Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(10).multiply(BigInteger.valueOf(10).pow(6)))),
@@ -235,7 +235,7 @@ class ContractTest extends BaseTest {
   @Test
   void testEstimateEnergyV2WithCallValue() {
     //  function deposit() external payable returns (uint256 slindAmount);
-    String slind = "TZ8du1HkatTWDbS6FLZei4dQfjfpSm9mxp"; //nile
+    String slind = "LiPPAADrWpacKE4cqCuETw12yAHnMqNULm"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
     Function depositFunction = new Function("deposit",
         Collections.emptyList(),
@@ -252,9 +252,9 @@ class ContractTest extends BaseTest {
   @Test
   void testConstantCallV2() {
     // balanceOf(address) returns (uint256)
-    String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
+    String usdtAddr = "LgoK4yUXZf9KFA4RB8PamPwBMAy3RAUqBT"; //nile
     String ownerAddr = client.keyPair.toBase58CheckAddress();
-    String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
+    String toAddress = "LezdEi3mUBAwRsihzYjMD6wbKPULJguPN3";
     Function balanceOfFunction = new Function("balanceOf",
         Collections.singletonList(new Address(ownerAddr)),
         Collections.singletonList(new TypeReference<Uint256>() {
@@ -275,9 +275,9 @@ class ContractTest extends BaseTest {
   @Test
   void testTriggerCallV2() throws InterruptedException, IllegalException {
     // transfer(address,uint256) returns (bool)
-    String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
+    String usdtAddr = "LgoK4yUXZf9KFA4RB8PamPwBMAy3RAUqBT"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
-    String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
+    String toAddress = "LezdEi3mUBAwRsihzYjMD6wbKPULJguPN3";
     Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(1).multiply(BigInteger.valueOf(10).pow(6)))),
@@ -297,7 +297,7 @@ class ContractTest extends BaseTest {
   @Test
   void testGetContract() {
     //this is a CreatedByContract
-    Contract contract = client.getContract("TAhMH9fxh5mLRki46qFkLckChxTykTvsVY"); //nile
+    Contract contract = client.getContract("LKx6YJc4d1tSXPLaghbL6V7q1P5weufguH"); //nile
 
     String originContractAddress = Base58Check.bytesToBase58(
         contract.getOriginAddr().toByteArray());
@@ -312,9 +312,9 @@ class ContractTest extends BaseTest {
   @Test
   void testTriggerConstantContract() throws InterruptedException, IllegalException {
     // transfer(address,uint256) returns (bool)
-    String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
+    String usdtAddr = "LgoK4yUXZf9KFA4RB8PamPwBMAy3RAUqBT"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
-    String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
+    String toAddress = "LezdEi3mUBAwRsihzYjMD6wbKPULJguPN3";
     Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(1).multiply(BigInteger.valueOf(10).pow(6)))),
@@ -352,7 +352,7 @@ class ContractTest extends BaseTest {
     client.enableLocalCreate(null, 1);
     try {
       client.transferLrc10(testAddress,
-          "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
+          "LKRkiesBJ4o7LyErYFYasZPnM4rnGp1H9u", Integer.parseInt(tokenId), 100);
       assert false;
     } catch (Exception e) {
       assert true;
@@ -361,7 +361,7 @@ class ContractTest extends BaseTest {
     //enable but valid blockId and timestamp
     client.enableLocalCreate(blockId, timestamp);
     TransactionExtention transactionExtention = client.transferLrc10(testAddress,
-        "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
+        "LKRkiesBJ4o7LyErYFYasZPnM4rnGp1H9u", Integer.parseInt(tokenId), 100);
     assertArrayEquals(ByteArray.subArray(rawHashBytes, 8, 16),
         transactionExtention.getTransaction().getRawData().getRefBlockHash().toByteArray());
     assertArrayEquals(ByteArray.subArray(refBlockNumBytes, 6, 8),
@@ -372,7 +372,7 @@ class ContractTest extends BaseTest {
     client.setReferHeadBlockId(null);
     try {
       client.transferLrc10(testAddress,
-          "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
+          "LKRkiesBJ4o7LyErYFYasZPnM4rnGp1H9u", Integer.parseInt(tokenId), 100);
       assert false;
     } catch (Exception e) {
       assert true;
@@ -389,7 +389,7 @@ class ContractTest extends BaseTest {
 
     //disable
     transactionExtention = client.transferLrc10(testAddress,
-        "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
+        "LKRkiesBJ4o7LyErYFYasZPnM4rnGp1H9u", Integer.parseInt(tokenId), 100);
     assertNotEquals(
         ByteArray.toHexString(ByteArray.subArray(rawHashBytes, 8, 16)),
         ByteArray.toHexString(

@@ -19,8 +19,8 @@ import org.linda.trident.utils.Strings;
 
 public class Utils {
 
-  public static byte ADD_PRE_FIX_BYTE_MAINNET = (byte) 0x41;   //41 + address
-  public static byte ADD_PRE_FIX_BYTE_TESTNET = (byte) 0xa0;   //a0 + address
+  public static byte ADD_PRE_FIX_BYTE_MAINNET = (byte) 0x30;   //30 + address
+  public static byte ADD_PRE_FIX_BYTE_TESTNET = (byte) 0xa1;   //a1 + address
   public static int ADDRESS_SIZE = 21;
 
   private static byte addressPreFixByte = ADD_PRE_FIX_BYTE_MAINNET;
