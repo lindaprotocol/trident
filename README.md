@@ -10,7 +10,7 @@ Trident is a lightweight Java SDK for interacting with the LINDA blockchain. It 
 - Smart contract deployment and interaction
 - Wallet key management and address utilities
 - Transaction building and signing
-- TRC10/TRC20/TRC721 token support
+- LRC10/LRC20/LRC721 token support
 
 ## Adding Trident to your build
 
@@ -105,7 +105,7 @@ linda.private-key=xxx
 linda.tokenId=1000587
 ```
 
-**Note:** The account should have at least 1000 LIND, 100 USDT, and 1000 TRC10 token on the Nile testnet. you can get testCoin from [nileex.io](https://nileex.io/join/getJoinPage).
+**Note:** The account should have at least 1000 LIND, 100 USDT, and 1000 LRC10 token on the Nile testnet. you can get testCoin from [nileex.io](https://nileex.io/join/getJoinPage).
 
 ## Contribution
 

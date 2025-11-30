@@ -497,13 +497,13 @@ message MarketPriceList {
     repeated MarketPrice prices = 3;
 }
 
-// shielded TRC20 transaction
+// shielded LRC20 transaction
 
 message NullifierResult {
     bool is_spent = 1;
 }
 
-message DecryptNotesTRC20 {
+message DecryptNotesLRC20 {
     message NoteTx {
         Note note = 1;
         int64 position = 2;

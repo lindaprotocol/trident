@@ -40,8 +40,8 @@ import org.linda.trident.utils.Base58Check;
 class ContractTest extends BaseTest {
 
   @Test
-  void testTransferTrc10() throws InterruptedException, IllegalException {
-    TransactionExtention transactionExtention = client.transferTrc10(testAddress,
+  void testTransferLrc10() throws InterruptedException, IllegalException {
+    TransactionExtention transactionExtention = client.transferLrc10(testAddress,
         "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
     Transaction transaction = client.signTransaction(transactionExtention);
     String txId = client.broadcastTransaction(transaction);
@@ -143,15 +143,15 @@ class ContractTest extends BaseTest {
   }
 
   @Test
-  void testDeployContractWithTRC10() throws Exception {
+  void testDeployContractWithLRC10() throws Exception {
 
-    String abiStr = "{\"entrys\":[{\"inputs\":[],\"stateMutability\":\"payable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"toAddress\",\"type\":\"address\"},{\"internalType\":\"trcToken\",\"name\":\"id\",\"type\":\"trcToken\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TransferTokenTo\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getResultInCon\",\"outputs\":[{\"internalType\":\"trcToken\",\"name\":\"\",\"type\":\"trcToken\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"msgTokenValueAndTokenIdTest\",\"outputs\":[{\"internalType\":\"trcToken\",\"name\":\"\",\"type\":\"trcToken\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"}]}";
+    String abiStr = "{\"entrys\":[{\"inputs\":[],\"stateMutability\":\"payable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"toAddress\",\"type\":\"address\"},{\"internalType\":\"lrcToken\",\"name\":\"id\",\"type\":\"lrcToken\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"TransferTokenTo\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getResultInCon\",\"outputs\":[{\"internalType\":\"lrcToken\",\"name\":\"\",\"type\":\"lrcToken\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"msgTokenValueAndTokenIdTest\",\"outputs\":[{\"internalType\":\"lrcToken\",\"name\":\"\",\"type\":\"lrcToken\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"}]}";
     String bytecode = "60806040526000805560006001556000600255d3600081905550d260018190555034600281905550610332806100366000396000f3fe6080604052600436106100345760003560e01c806305c24200146100395780633be9ece71461005957806371dc08ce14610075575b600080fd5b610041610095565b60405161005093929190610214565b60405180910390f35b610073600480360381019061006e91906101a3565b6100ad565b005b61007d610135565b60405161008c93929190610214565b60405180910390f35b60008060008054600154600254925092509250909192565b8273ffffffffffffffffffffffffffffffffffffffff166108fc82908115029084801580156100db57600080fd5b5080678000000000000000111580156100f357600080fd5b5080620f42401015801561010657600080fd5b5060405160006040518083038185878a8ad094505050505015801561012f573d6000803e3d6000fd5b50505050565b600080600080d390506000d290506000349050828282955095509550505050909192565b600081359050610168816102b7565b6101718161024b565b905092915050565b600081359050610188816102ce565b92915050565b60008135905061019d816102e5565b92915050565b6000806000606084860312156101bc576101bb6102b2565b5b60006101ca86828701610159565b93505060206101db86828701610179565b92505060406101ec8682870161018e565b9150509250925092565b6101ff8161025d565b82525050565b61020e816102a8565b82525050565b600060608201905061022960008301866101f6565b6102366020830185610205565b6102436040830184610205565b949350505050565b600061025682610267565b9050919050565b6000819050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600074ffffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600080fd5b6102c081610287565b81146102cb57600080fd5b50565b6102d78161025d565b81146102e257600080fd5b50565b6102ee816102a8565b81146102f957600080fd5b5056fea26474726f6e58221220fdf0f3a4587a08bebc9e8382b06c5f235f5836675d1cefa1cd29157296a52b8264736f6c63430008060033";
 
     //callValue 1LIND
     //tokenId
     //tokenValue 10
-    TransactionExtention transactionExtention = client.deployContract("testDeployContractWithTRC10",
+    TransactionExtention transactionExtention = client.deployContract("testDeployContractWithLRC10",
         abiStr, bytecode,
         null, 100_000_000L, 100,
         10_000_000L, 1_000_000L, tokenId, 10L);
@@ -172,12 +172,12 @@ class ContractTest extends BaseTest {
     String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
     String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
-    Function trc20Transfer = new Function("transfer",
+    Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(10).multiply(BigInteger.valueOf(10).pow(6)))),
         Collections.singletonList(new TypeReference<Bool>() {
         }));
-    String encodedHex = FunctionEncoder.encode(trc20Transfer);
+    String encodedHex = FunctionEncoder.encode(lrc20Transfer);
     TransactionExtention transactionExtention = client.triggerContract(fromAddr, usdtAddr,
         encodedHex, 0, 0, null, 150_000_000L);
 
@@ -198,12 +198,12 @@ class ContractTest extends BaseTest {
     String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
     String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
-    Function trc20Transfer = new Function("transfer",
+    Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(10).multiply(BigInteger.valueOf(10).pow(6)))),
         Collections.singletonList(new TypeReference<Bool>() {
         }));
-    String encodedHex = FunctionEncoder.encode(trc20Transfer);
+    String encodedHex = FunctionEncoder.encode(lrc20Transfer);
     try {
       client.triggerContract(fromAddr, usdtAddr,
           encodedHex, 0L, 0L, null, 0L);
@@ -219,12 +219,12 @@ class ContractTest extends BaseTest {
     String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
     String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
-    Function trc20Transfer = new Function("transfer",
+    Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(10).multiply(BigInteger.valueOf(10).pow(6)))),
         Collections.singletonList(new TypeReference<Bool>() {
         }));
-    String encodedHex = FunctionEncoder.encode(trc20Transfer);
+    String encodedHex = FunctionEncoder.encode(lrc20Transfer);
     EstimateEnergyMessage estimateEnergyMessage = client.estimateEnergyV2(fromAddr, usdtAddr,
         encodedHex);
     //System.out.println(estimateEnergyMessage.getEnergyRequired());
@@ -278,12 +278,12 @@ class ContractTest extends BaseTest {
     String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
     String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
-    Function trc20Transfer = new Function("transfer",
+    Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(1).multiply(BigInteger.valueOf(10).pow(6)))),
         Collections.singletonList(new TypeReference<Bool>() {
         }));
-    String encodedHex = FunctionEncoder.encode(trc20Transfer);
+    String encodedHex = FunctionEncoder.encode(lrc20Transfer);
     TransactionBuilder transactionBuilder = client.triggerCallV2(fromAddr, usdtAddr, encodedHex);
     Transaction signedTxn = client.signTransaction(transactionBuilder.getTransaction());
     String ret = client.broadcastTransaction(signedTxn);
@@ -315,12 +315,12 @@ class ContractTest extends BaseTest {
     String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
     String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
-    Function trc20Transfer = new Function("transfer",
+    Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(1).multiply(BigInteger.valueOf(10).pow(6)))),
         Collections.singletonList(new TypeReference<Bool>() {
         }));
-    String encodedHex = FunctionEncoder.encode(trc20Transfer);
+    String encodedHex = FunctionEncoder.encode(lrc20Transfer);
     try {
       client.triggerConstantContract(fromAddr, usdtAddr,
           encodedHex, -1L, 0L, null);
@@ -351,7 +351,7 @@ class ContractTest extends BaseTest {
     //enable but invalid blockId
     client.enableLocalCreate(null, 1);
     try {
-      client.transferTrc10(testAddress,
+      client.transferLrc10(testAddress,
           "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
       assert false;
     } catch (Exception e) {
@@ -360,7 +360,7 @@ class ContractTest extends BaseTest {
 
     //enable but valid blockId and timestamp
     client.enableLocalCreate(blockId, timestamp);
-    TransactionExtention transactionExtention = client.transferTrc10(testAddress,
+    TransactionExtention transactionExtention = client.transferLrc10(testAddress,
         "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
     assertArrayEquals(ByteArray.subArray(rawHashBytes, 8, 16),
         transactionExtention.getTransaction().getRawData().getRefBlockHash().toByteArray());
@@ -371,7 +371,7 @@ class ContractTest extends BaseTest {
     //enable but invalid blockId
     client.setReferHeadBlockId(null);
     try {
-      client.transferTrc10(testAddress,
+      client.transferLrc10(testAddress,
           "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
       assert false;
     } catch (Exception e) {
@@ -388,7 +388,7 @@ class ContractTest extends BaseTest {
     }
 
     //disable
-    transactionExtention = client.transferTrc10(testAddress,
+    transactionExtention = client.transferLrc10(testAddress,
         "TAB1TVw5N8g1FLcKxPD17h2A3eEpSXvMQd", Integer.parseInt(tokenId), 100);
     assertNotEquals(
         ByteArray.toHexString(ByteArray.subArray(rawHashBytes, 8, 16)),

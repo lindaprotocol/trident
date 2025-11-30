@@ -68,7 +68,7 @@ public interface Api {
   TransactionExtention transfer(String fromAddress, String toAddress, long amount)
       throws IllegalException;
 
-  TransactionExtention transferTrc10(String fromAddress, String toAddress, int tokenId, long amount)
+  TransactionExtention transferLrc10(String fromAddress, String toAddress, int tokenId, long amount)
       throws IllegalException;
 
   TransactionExtention freezeBalance(String ownerAddress, long frozenBalance, int frozenDuration,

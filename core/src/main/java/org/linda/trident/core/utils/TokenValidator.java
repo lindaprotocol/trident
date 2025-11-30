@@ -35,7 +35,7 @@ public class TokenValidator {
     //range, start 1000000L
     long tokenValue = Long.parseLong(trimmedTokenId);
     if (tokenValue < 1000000L) {
-      throw new IllegalArgumentException("TRC10 token ID must ge 1000000");
+      throw new IllegalArgumentException("LRC10 token ID must ge 1000000");
     }
   }
 

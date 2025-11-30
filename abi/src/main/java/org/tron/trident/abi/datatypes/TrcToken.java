@@ -18,20 +18,20 @@ import java.math.BigInteger;
 /**
  * Unsigned integer type.
  */
-public class TrcToken extends IntType {
+public class LrcToken extends IntType {
 
-  public static final String TYPE_NAME = "trcToken";
+  public static final String TYPE_NAME = "lrcToken";
   public static final Uint DEFAULT = new Uint(BigInteger.ZERO);
 
-  protected TrcToken(int bitSize, BigInteger value) {
+  protected LrcToken(int bitSize, BigInteger value) {
     super(TYPE_NAME, bitSize, value);
   }
 
-  public TrcToken(int value) {
+  public LrcToken(int value) {
     this(BigInteger.valueOf(value));
   }
 
-  public TrcToken(BigInteger value) {
+  public LrcToken(BigInteger value) {
     // "int" values should be declared as int256 in computing function selectors
     this(MAX_BIT_LENGTH, value);
   }

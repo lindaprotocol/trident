@@ -698,17 +698,17 @@ public class ApiWrapper implements Api {
   }
 
   /**
-   * Transfers TRC10 Asset
+   * Transfers LRC10 Asset
    *
    * @param fromAddress owner address
    * @param toAddress receive balance
    * @param tokenId asset name
    * @param amount transfer amount
    * @return TransactionExtention
-   * @throws IllegalException if fail to transfer trc10
+   * @throws IllegalException if fail to transfer lrc10
    */
   @Override
-  public TransactionExtention transferTrc10(String fromAddress, String toAddress, int tokenId,
+  public TransactionExtention transferLrc10(String fromAddress, String toAddress, int tokenId,
       long amount) throws IllegalException {
 
     ByteString rawFrom = parseAddress(fromAddress);
@@ -773,7 +773,7 @@ public class ApiWrapper implements Api {
 
   /**
    * Stake2.0 API
-   * Stake an amount of LIND to obtain bandwidth or energy, and obtain equivalent LINDA Power(TP) according to the staked amount
+   * Stake an amount of LIND to obtain bandwidth or energy, and obtain equivalent LINDA Power(LP) according to the staked amount
    *
    * @param ownerAddress owner address
    * @param frozenBalance LIND stake amount, the unit is sun
@@ -836,7 +836,7 @@ public class ApiWrapper implements Api {
 
   /**
    * Stake2.0 API
-   * Unstake some LIND, release the corresponding amount of bandwidth or energy, and voting rights (TP)
+   * Unstake some LIND, release the corresponding amount of bandwidth or energy, and voting rights (LP)
    *
    * @param ownerAddress owner address
    * @param unfreezeBalance the amount of LIND to unstake, in sun
@@ -1602,7 +1602,7 @@ public class ApiWrapper implements Api {
   }
 
   /**
-   * Query the list of all the TRC10 tokens
+   * Query the list of all the LRC10 tokens
    * @param nodeType Optional parameter to specify which node to query.
    *                 If not provided, uses full node default.
    *                 If NodeType.SOLIDITY_NODE, uses solidity node.
@@ -1640,7 +1640,7 @@ public class ApiWrapper implements Api {
   }
 
   /**
-   * Query the TRC10 token information issued by an account
+   * Query the LRC10 token information issued by an account
    *
    * @param address the Token Issuer account address
    * @return AssetIssueList, a list of Tokens that succeed the Token located at offset
@@ -1658,7 +1658,7 @@ public class ApiWrapper implements Api {
   /**
    * Query a token by token id
    *
-   * @param assetId the ID of the TRC10 token
+   * @param assetId the ID of the LRC10 token
    * @param nodeType Optional parameter to specify which node to query.
    *                 If not provided, uses full node default.
    *                 If NodeType.SOLIDITY_NODE, uses solidity node.
@@ -1678,7 +1678,7 @@ public class ApiWrapper implements Api {
   /**
    * Query a token by token name
    *
-   * @param name the name of the TRC10 token
+   * @param name the name of the LRC10 token
    * @param nodeType Optional parameter to specify which node to query.
    *                 If not provided, uses full node default.
    *                 If NodeType.SOLIDITY_NODE, uses solidity node.
@@ -1697,9 +1697,9 @@ public class ApiWrapper implements Api {
   }
 
   /**
-   * Query the list of all the TRC10 tokens by token name
+   * Query the list of all the LRC10 tokens by token name
    *
-   * @param name the name of the TRC10 token
+   * @param name the name of the LRC10 token
    * @param nodeType Optional parameter to specify which node to query.
    *                 If not provided, uses full node default.
    *                 If NodeType.SOLIDITY_NODE, uses solidity node.
@@ -1940,7 +1940,7 @@ public class ApiWrapper implements Api {
   }
 
   /**
-   * Update basic TRC10 token information
+   * Update basic LRC10 token information
    *
    * @param ownerAddress Owner address, default hexString
    * @param description The description of token, default hexString

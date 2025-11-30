@@ -69,18 +69,18 @@ class ApiWrapperTest extends BaseTest {
   }
 
   @Test
-  void testSendTrc20Transaction() {
+  void testSendLrc20Transaction() {
     // transfer(address,uint256) returns (bool)
     String usdtAddr = "TXYZopYRdj2D9XRtbG411XZZ3kM5VkAeBf"; //nile
     String fromAddr = client.keyPair.toBase58CheckAddress();
     String toAddress = "TVjsyZ7fYF3qLF6BQgPmTEZy1xrNNyVAAA";
-    Function trc20Transfer = new Function("transfer",
+    Function lrc20Transfer = new Function("transfer",
         Arrays.asList(new Address(toAddress),
             new Uint256(BigInteger.valueOf(10).multiply(BigInteger.valueOf(10).pow(6)))),
         Arrays.asList(new TypeReference<Bool>() {
         }));
 
-    String encodedHex = FunctionEncoder.encode(trc20Transfer);
+    String encodedHex = FunctionEncoder.encode(lrc20Transfer);
 
     TriggerSmartContract trigger =
         TriggerSmartContract.newBuilder()

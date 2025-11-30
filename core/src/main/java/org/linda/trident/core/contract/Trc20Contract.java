@@ -19,19 +19,19 @@ import org.linda.trident.utils.Base58Check;
 import org.linda.trident.utils.Numeric;
 
 /**
- * The {@code Trc20Contract} is a wrapper class of a standard TRC-20 smart contract.
+ * The {@code Lrc20Contract} is a wrapper class of a standard LRC-20 smart contract.
  *
- * <p>A {@code Trc20Contract} object includes standard TRC-20 functions defined
- * in TIP-20. Each {@code Trc20Contract} binds a {@link ApiWrapper} with specific
+ * <p>A {@code Lrc20Contract} object includes standard LRC-20 functions defined
+ * in TIP-20. Each {@code Lrc20Contract} binds a {@link ApiWrapper} with specific
  * caller's private key and address.</p>
  *
  * @see org.linda.trident.core.ApiWrapper
  * @see org.linda.trident.abi.datatypes.Function
  * @since jdk 1.8.0_231
  */
-public class Trc20Contract extends Contract {
+public class Lrc20Contract extends Contract {
 
-  public Trc20Contract(Contract cntr, String ownerAddr, ApiWrapper wrapper) {
+  public Lrc20Contract(Contract cntr, String ownerAddr, ApiWrapper wrapper) {
     super(cntr, ownerAddr, wrapper);
   }
 

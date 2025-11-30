@@ -27,7 +27,7 @@ import org.linda.trident.abi.datatypes.DynamicArray;
 import org.linda.trident.abi.datatypes.DynamicBytes;
 import org.linda.trident.abi.datatypes.Int;
 import org.linda.trident.abi.datatypes.StaticArray;
-import org.linda.trident.abi.datatypes.TrcToken;
+import org.linda.trident.abi.datatypes.LrcToken;
 import org.linda.trident.abi.datatypes.Type;
 import org.linda.trident.abi.datatypes.Uint;
 import org.linda.trident.abi.datatypes.Utf8String;
@@ -1029,11 +1029,11 @@ public class TypeDecoderTest {
   }
 
   @Test
-  public void testTrcToken() throws Exception {
+  public void testLrcToken() throws Exception {
     assertEquals(
         TypeDecoder.instantiateType(
-            "trcToken", "00000000000000000000000000000000000000000000000000000000000f4e0c"),
-        (new TrcToken(1003020)));
+            "lrcToken", "00000000000000000000000000000000000000000000000000000000000f4e0c"),
+        (new LrcToken(1003020)));
   }
 
   @Test
