@@ -37,7 +37,7 @@
   <groupId>io.github.lindaprotocol</groupId>
   <artifactId>trident</artifactId>
   <version>0.10.0</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -49,11 +49,11 @@
     <junit.jupiter.version>5.4.2</junit.jupiter.version>
     <guava.version>33.0.0-jre</guava.version>
     <lombok.version>1.18.12</lombok.version>
+    <grpc.version>1.42.2</grpc.version>
+    <protobuf.version>3.19.2</protobuf.version>
     
     <!-- Plugin Versions -->
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-    <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
-    <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
     <maven.source.plugin.version>3.2.1</maven.source.plugin.version>
     <maven.javadoc.plugin.version>3.3.1</maven.javadoc.plugin.version>
     <maven.gpg.plugin.version>3.0.1</maven.gpg.plugin.version>
@@ -64,7 +64,7 @@
   </properties>
 
   <name>Trident</name>
-  <description>Trident project for Linda Protocol</description>
+  <description>Trident project for Linda Protocol - A comprehensive Java SDK for blockchain operations</description>
   <url>https://github.com/lindaprotocol/trident</url>
   <inceptionYear>2022</inceptionYear>
 
@@ -76,7 +76,7 @@
   <licenses>
     <license>
       <name>Apache License 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -92,26 +92,16 @@
     <developer>
       <id>geeks</id>
       <name>LINDA Foundation Development Team</name>
-      <organization>LINDA</organization>
+      <email>dev@linda.network</email>
+      <organization>LINDA Foundation</organization>
       <organizationUrl>https://www.linda.network/</organizationUrl>
-    </developer>
-    <developer>
-      <id>lindaprotocol</id>
-      <name>LindaProtocol</name>
-      <organization>LindaProtocol</organization>
-      <organizationUrl>http://linda.network/</organizationUrl>
-      <email>lindaprotocol@linda.network</email>
-      <roles>
-        <role>Developer</role>
-      </roles>
-      <timezone>+8</timezone>
     </developer>
   </developers>
 
   <distributionManagement>
     <snapshotRepository>
       <id>ossrh</id>
-      <url>>https://ossrh-staging-api.central.sonatype.com/content/repositories/snapshots/</url>
+      <url>https://ossrh-staging-api.central.sonatype.com/content/repositories/snapshots/</url>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
@@ -119,163 +109,80 @@
     </repository>
   </distributionManagement>
 
-  <dependencies>
-    <!-- Bouncy Castle -->
-    <dependency>
-      <groupId>org.bouncycastle</groupId>
-      <artifactId>bcprov-jdk18on</artifactId>
-      <version>${bouncycastle.version}</version>
-    </dependency>
-    
-    <!-- Google Guava -->
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
-    </dependency>
-    
-    <!-- Lombok -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    
-    <!-- Testing -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>${junit.jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  <modules>
+    <module>abi</module>
+    <module>core</module>
+    <module>utils</module>
+  </modules>
 
   <build>
-    <plugins>
-      <!-- Compiler Plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven.compiler.plugin.version}</version>
-        <configuration>
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
-          <annotationProcessorPaths>
-            <path>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>${lombok.version}</version>
-            </path>
-          </annotationProcessorPaths>
-        </configuration>
-      </plugin>
-      
-      <!-- Clean Plugin -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>${maven.clean.plugin.version}</version>
-      </plugin>
-      
-      <!-- Surefire Plugin for Testing -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven.surefire.plugin.version}</version>
-        <configuration>
-          <useSystemClassLoader>false</useSystemClassLoader>
-          <includes>
-            <include>**/*Test.java</include>
-          </includes>
-        </configuration>
-      </plugin>
+    <pluginManagement>
+      <plugins>
+        <!-- Compiler Plugin -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${maven.compiler.plugin.version}</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
 
-      <!-- Source JAR -->
+        <!-- Source Plugin -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${maven.source.plugin.version}</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <!-- Javadoc Plugin -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${maven.javadoc.plugin.version}</version>
+          <configuration>
+            <source>8</source>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <docencoding>${project.build.sourceEncoding}</docencoding>
+            <charset>${project.build.sourceEncoding}</charset>
+            <additionalOptions>
+              <additionalOption>-Xdoclint:none</additionalOption>
+            </additionalOptions>
+            <failOnError>false</failOnError>
+          </configuration>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <!-- Source JAR for parent POM -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>${maven.source.plugin.version}</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <phase>package</phase>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 
-      <!-- Javadoc JAR -->
+      <!-- Javadoc JAR for parent POM -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>${maven.javadoc.plugin.version}</version>
-        <executions>
-          <execution>
-            <id>attach-javadocs</id>
-            <phase>package</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-            <configuration>
-              <source>8</source>
-              <encoding>${project.build.sourceEncoding}</encoding>
-              <docencoding>${project.build.sourceEncoding}</docencoding>
-              <charset>${project.build.sourceEncoding}</charset>
-              <additionalOptions>
-                <additionalOption>-Xdoclint:none</additionalOption>
-              </additionalOptions>
-              <excludePackageNames>**/internal:**/impl:*</excludePackageNames>
-              <tags>
-                <tag>
-                  <name>apiNote</name>
-                  <placement>a</placement>
-                  <head>API Note:</head>
-                </tag>
-                <tag>
-                  <name>implSpec</name>
-                  <placement>a</placement>
-                  <head>Implementation Requirements:</head>
-                </tag>
-                <tag>
-                  <name>implNote</name>
-                  <placement>a</placement>
-                  <head>Implementation Note:</head>
-                </tag>
-              </tags>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-      <!-- Shade Plugin for Fat JAR (equivalent to shadowJar in Gradle) -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>${maven.shade.plugin.version}</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <createDependencyReducedPom>false</createDependencyReducedPom>
-              <filters>
-                <filter>
-                  <artifact>*:*</artifact>
-                  <excludes>
-                    <exclude>META-INF/*.SF</exclude>
-                    <exclude>META-INF/*.DSA</exclude>
-                    <exclude>META-INF/*.RSA</exclude>
-                  </excludes>
-                </filter>
-              </filters>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
@@ -297,10 +204,6 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
-                <configuration>
-                  <keyname>${gpg.keyname}</keyname>
-                  <passphraseServerId>${gpg.keyname}</passphraseServerId>
-                </configuration>
               </execution>
             </executions>
           </plugin>
