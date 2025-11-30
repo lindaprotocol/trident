@@ -1,5 +1,5 @@
 def VERSION = '0.10.0'
-group 'com.github.lindaprotocol'
+group 'io.github.lindaprotocol'
 
 buildscript {
     repositories {

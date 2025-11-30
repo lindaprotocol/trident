@@ -21,7 +21,7 @@ Latest version can be found on [Maven Central](https://mvnrepository.com/artifac
 ### Gradle
 
 ```groovy
-implementation("com.github.lindaprotocol:trident:<version>") // Check latest version from Maven Central
+implementation("io.github.lindaprotocol:trident:<version>") // Check latest version from Maven Central
 ```
 
 ### Maven
@@ -30,7 +30,7 @@ Add repo setting:
 
 ```xml
 <dependency>
-  <groupId>com.github.lindaprotocol</groupId>
+  <groupId>io.github.lindaprotocol</groupId>
   <artifactId>trident</artifactId>
   <version>[version]</version>
 </dependency>
