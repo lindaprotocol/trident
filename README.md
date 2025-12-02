@@ -1,4 +1,7 @@
 # Trident - LINDA Java SDK
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.lindaprotocol/trident.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.lindaprotocol%22%20AND%20a:%22trident%22)
+
+Version: 0.10.0
 
 ## Overview
 
